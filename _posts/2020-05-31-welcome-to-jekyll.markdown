@@ -124,7 +124,9 @@ categories: WEBee
 - 启动可视化工具
 
 		gnuradio-companion
+
 # 安装802.11和802.15
+
 ## 安装gr-foo
 
 		cd ~/WEBee
@@ -138,6 +140,7 @@ categories: WEBee
 		make test
 		sudo make install
 		sudo ldconfig
+
 ## 安装gr-ieee802-11
 
 		cd ~/WEBee
