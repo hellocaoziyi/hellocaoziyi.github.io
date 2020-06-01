@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "GNU radio 安装教程"
-date:   2020-05-31 06:53:51 +0800
+title:  "GNU radio 入门教程"
+date:   2020-06-01 23:49:00 +0800
 categories: WEBee
 ---
 # GNU Radio 入门教程
