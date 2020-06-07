@@ -6,19 +6,24 @@ categories: WEBee
 ---
 
 # 在Ubuntu18.04下安装GNU radio
-## 安装ubuntu18.04
+
+### 安装ubuntu18.04
 - 下载ubuntu18.04安装包
 - 创建虚拟机
 - 安装ubuntu18.04
 - 更新源
 
 		推荐使用aliyun
+
 - 更新库
 
 		sudo apt-get update
 		sudo apt-get upgrade
-# 从源码安装GNU radio
-## 1.安装UHD
+
+## 从源码安装GNU radio
+
+### 1.安装UHD
+
 - 安装依赖库
 
 		多执行两遍，确保全部安装成功
@@ -27,6 +32,7 @@ categories: WEBee
 - 重启系统
 
 		sudo reboot
+		
 - 准备安装路径
 
 		cd
@@ -36,9 +42,11 @@ categories: WEBee
 
 		git clone https://gitee.com/helloziyi/uhd.git
 		cd uhd
+
 - 切换分支
 
 		git checkout UHD-3.9.LTS
+
 - 准备编译
 
 		cd host
@@ -46,15 +54,19 @@ categories: WEBee
 		cd build
 		cmake ../
 		make
+
 - 检查编译
 
 		make test
+		
 - 安装源码
 
 		sudo make install
+		
 - 更新系统共享库缓存
 
 		sudo ldconfig
+		
 - 设置环境
 
 		sudo apt-get -y install vim
@@ -63,6 +75,7 @@ categories: WEBee
 		export LD_LIBRARY_PATH=/usr/local/lib 
 		如果LD_LIBRARY_PATH已经定义了，在末尾添加下面的代码
 		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+		
 - 检查安装结果
 
 		uhd_find_devices
@@ -70,10 +83,13 @@ categories: WEBee
 		linux; GNU C++ version 4.8.4; Boost_105400; UHD_003.010.000.HEAD-0-g6e1ac3fc
 
 		No UHD Devices Found
-## 安装GNU radio
+		
+### 安装GNU radio
+
 - 设置安装路径
 
 		cd ~/WEBee
+		
 - 下载源码
 
 		git clone --recursive https://gitee.com/helloziyi/gnuradio.git
@@ -93,17 +109,21 @@ categories: WEBee
 		mkdir build
 		cd build
 		cmake ../
-		在执行make之前，请确保系统有较大的内存（`建议3GB以上`）
+		在执行make之前，请确保系统有较大的内存（建议3GB以上）
 		make
+		
 - 检查编译
 
 		make test
+		
 - 安装源码
 
 		sudo make install
+		
 - 更新系统共享库缓存
 
 		sudo ldconfig
+		
 - 检查安装
 
 		gnuradio-config-info --version
@@ -118,78 +138,114 @@ categories: WEBee
 		sudo ldconfig
 		exit
 		重新打开终端
+		
 - 拨号测试
 
 		python3 ~/WEBee/gnuradio/gr-audio/examples/python/dial_tone.py
+		
 - 启动可视化工具
 
 		gnuradio-companion
+		
+## 安装802.11和802.15
 
-# 安装802.11和802.15
+### 安装gr-foo
 
-## 安装gr-foo
+	cd ~/WEBee
+	git clone https://gitee.com/helloziyi/gr-foo.git
+	cd gr-foo
+	git checkout maint-3.8
+	mkdir build
+	cd build
+	cmake ..
+	make
+	make test
+	sudo make install
+	sudo ldconfig
+	
+### 安装gr-ieee802-11
 
-		cd ~/WEBee
-		git clone https://gitee.com/helloziyi/gr-foo.git
-		cd gr-foo
-		git checkout maint-3.8
-		mkdir build
-		cd build
-		cmake ..
-		make
-		make test
-		sudo make install
-		sudo ldconfig
+	cd ~/WEBee
+	git clone https://gitee.com/helloziyi/gr-ieee802-11.git
+	cd gr-ieee802-11
+	git checkout maint-3.8
+	mkdir build
+	cd build
+	cmake ..
+	make
+	sudo make install
+	sudo ldconfig 
 
-## 安装gr-ieee802-11
+### 安装gr-ieee802-15-4
 
-		cd ~/WEBee
-		git clone https://gitee.com/helloziyi/gr-ieee802-11.git
-		cd gr-ieee802-11
-		git checkout maint-3.8
-		mkdir build
-		cd build
-		cmake ..
-		make
-		sudo make install
-		sudo ldconfig 
+	cd ~/WEBee
+	sudo apt-get -y install python-matplotlib
+	git clone https://gitee.com/helloziyi/gr-ieee802-15-4.git
+	cd gr-ieee802-15-4
+	git checkout maint-3.8
+	mkdir build
+	cd build
+	cmake ..
+	make
+	sudo make install
+	sudo ldconfig 
 
-## 安装gr-ieee802-15-4
+### 调整最大共享内存
 
-		cd ~/WEBee
-		sudo apt-get -y install python-matplotlib
-		git clone https://gitee.com/helloziyi/gr-ieee802-15-4.git
-		cd gr-ieee802-15-4
-		git checkout maint-3.8
-		mkdir build
-		cd build
-		cmake ..
-		make
-		sudo make install
-		sudo ldconfig 
+	sudo sysctl -w kernel.shmmax=2147483648
 
-## 调整最大共享内存
+### 调整volk最佳实现
 
-		sudo sysctl -w kernel.shmmax=2147483648
+	volk_profile
 
-## 调整volk最佳实现
+### 下载教程样例
 
-		volk_profile
+	cd ~/WEBee
+	git clone https://gitee.com/helloziyi/gr-tutorial.git
 
-## 下载教程样例
+### 开启FTP服务
 
-		cd ~/WEBee
-		git clone https://gitee.com/helloziyi/gr-tutorial.git
-#说明
+	sudo apt-get install vsftpd
+	sudo vi /etc/vsftpd.conf
+		使能如下两行，把注释取消掉
+		local_enable=YES
+		write_enable=YES
+	sudo /etc/init.d/vsftpd restart
+	然后通过ftp服务把代码传到ubuntu下
+
+### 安装VScode
+
+	在应用商店搜索VScode并安装
+	启动VScode
+	安装一下插件
+	1)、 C/C++，这个肯定是必须的。
+	2)、 C/C++ Snippets，即 C/C++重用代码块。
+	3)、 C/C++ Advanced Lint,即 C/C++静态检测 。
+	4)、 Code Runner，即代码运行。
+	5)、 Include AutoComplete，即自动头文件包含。
+	6)、 Rainbow Brackets，彩虹花括号，有助于阅读代码。
+	7)、 One Dark Pro， VSCode 的主题。
+	8)、 GBKtoUTF8，将 GBK 转换为 UTF8。
+	9)、 ARM，即支持 ARM 汇编语法高亮显示。
+	10)、 Chinese(Simplified)，即中文环境。
+	11)、 vscode-icons， VSCode 图标插件，主要是资源管理器下各个文件夹的图标。
+	12)、 compareit，比较插件，可以用于比较两个文件的差异。
+	13)、 DeviceTree，设备树语法插件。
+	14)、 TabNine，一款 AI 自动补全插件，强烈推荐，谁用谁知道！
+	15)、 Python
+	16)、 python snippets
+	
+
+## 说明
 
 代码通过gitee转载，可以很快下载源码，UHD使用的版本为3.9，GNU radio使用的版本是3.8
 
 参考网址：
 
-https://wiki.gnuradio.org/index.php/InstallingGR#From_Source
+[https://wiki.gnuradio.org/index.php/InstallingGR#From_Source](https://wiki.gnuradio.org/index.php/InstallingGR#From_Source)
 
-https://www.wime-project.net/installation/
+[https://www.wime-project.net/installation/](https://www.wime-project.net/installation/)
 
 version：2020/05/30
 
-联系邮箱：hellocaoziyi@gmail.com
+邮箱：hellocaoziyi@gmail.com
