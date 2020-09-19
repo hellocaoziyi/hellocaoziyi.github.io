@@ -252,6 +252,8 @@ categories: WEBee
 
 [https://www.wime-project.net/installation/](https://www.wime-project.net/installation/)
 
+[https://files.ettus.com/manual/page_build_guide.html](https://files.ettus.com/manual/page_build_guide.html)
+
 version：2020/05/30
 
 邮箱：hellocaoziyi@gmail.com
