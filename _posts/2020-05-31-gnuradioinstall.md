@@ -13,7 +13,7 @@ categories: WEBee
 - 安装ubuntu18.04
 - 更新源
 
-		推荐使用aliyun
+		推荐使用aliyun(open **software & Updates**, select **Download from**,choose **http://mirrors.aliyun.com/ubuntu**)
 
 - 更新库
 
@@ -31,13 +31,14 @@ categories: WEBee
 
 - 重启系统
 
-		sudo reboot
-		
+		**sudo reboot**
+
 - 准备安装路径
 
 		cd
 		mkdir WEBee
 		cd WEBee
+
 - 下载源码
 
 		git clone https://gitee.com/helloziyi/uhd.git
@@ -45,7 +46,7 @@ categories: WEBee
 
 - 切换分支
 
-		git checkout UHD-3.9.LTS
+		git checkout UHD-3.15.LTS
 
 - 准备编译
 
@@ -58,24 +59,24 @@ categories: WEBee
 - 检查编译
 
 		make test
-		
+
 - 安装源码
 
 		sudo make install
-		
+
 - 更新系统共享库缓存
 
 		sudo ldconfig
-		
+
 - 设置环境
 
 		sudo apt-get -y install vim
 		sudo vim ~/.bashrc
 		如果LD_LIBRARY_PATH未定义，在末尾添加下面的代码
-		export LD_LIBRARY_PATH=/usr/local/lib 
+		export LD_LIBRARY_PATH=/usr/local/lib
 		如果LD_LIBRARY_PATH已经定义了，在末尾添加下面的代码
 		export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-		
+
 - 检查安装结果
 
 		uhd_find_devices
@@ -83,13 +84,13 @@ categories: WEBee
 		linux; GNU C++ version 4.8.4; Boost_105400; UHD_003.010.000.HEAD-0-g6e1ac3fc
 
 		No UHD Devices Found
-		
+
 ### 安装GNU radio
 
 - 设置安装路径
 
 		cd ~/WEBee
-		
+
 - 下载源码
 
 		git clone --recursive https://gitee.com/helloziyi/gnuradio.git
@@ -111,19 +112,19 @@ categories: WEBee
 		cmake ../
 		在执行make之前，请确保系统有较大的内存（建议3GB以上）
 		make
-		
+
 - 检查编译
 
 		make test
-		
+
 - 安装源码
 
 		sudo make install
-		
+
 - 更新系统共享库缓存
 
 		sudo ldconfig
-		
+
 - 检查安装
 
 		gnuradio-config-info --version
@@ -138,15 +139,15 @@ categories: WEBee
 		sudo ldconfig
 		exit
 		重新打开终端
-		
+
 - 拨号测试
 
 		python3 ~/WEBee/gnuradio/gr-audio/examples/python/dial_tone.py
-		
+
 - 启动可视化工具
 
 		gnuradio-companion
-		
+
 ## 安装802.11和802.15
 
 ### 安装gr-foo
@@ -162,7 +163,7 @@ categories: WEBee
 	make test
 	sudo make install
 	sudo ldconfig
-	
+
 ### 安装gr-ieee802-11
 
 	cd ~/WEBee
@@ -174,7 +175,7 @@ categories: WEBee
 	cmake ..
 	make
 	sudo make install
-	sudo ldconfig 
+	sudo ldconfig
 
 ### 安装gr-ieee802-15-4
 
@@ -188,7 +189,7 @@ categories: WEBee
 	cmake ..
 	make
 	sudo make install
-	sudo ldconfig 
+	sudo ldconfig
 
 ### 调整最大共享内存
 
@@ -234,7 +235,7 @@ categories: WEBee
 	14)、 TabNine，一款 AI 自动补全插件，强烈推荐，谁用谁知道！
 	15)、 Python
 	16)、 python snippets
-	
+
 
 ## 说明
 
