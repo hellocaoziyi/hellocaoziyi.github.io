@@ -13,7 +13,7 @@ categories: WEBee
 - 安装ubuntu18.04
 - 更新源
 
-		推荐使用aliyun(open \*software & Updates**, select **Download from**,choose **http://mirrors.aliyun.com/ubuntu**)
+		推荐使用aliyun(open __software & Updates__, select **Download from**,choose **http://mirrors.aliyun.com/ubuntu**)
 
 - 更新库
 
