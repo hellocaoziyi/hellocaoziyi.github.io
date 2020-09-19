@@ -16,7 +16,7 @@ categories: WEBee
 
 		推荐使用aliyun
 		
-        (open **software & Updates**, select **Download from**, choose **http://mirrors.aliyun.com/ubuntu**)
+    (open **software & Updates**, select **Download from**, choose **http://mirrors.aliyun.com/ubuntu**)
 
 - 更新库
 
