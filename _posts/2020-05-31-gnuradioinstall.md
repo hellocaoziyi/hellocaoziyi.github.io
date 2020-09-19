@@ -5,7 +5,8 @@ date:   2020-05-31 06:53:51 +0800
 categories: WEBee
 ---
 
-# 在Ubuntu18.04下安装GNU radio
+# 在Ubuntu18.04下安装GNU radio（从源码安装）
+**如果使用的是ubuntu20，不能使用该教程，因为对应的依赖包不一样**
 
 ### 安装ubuntu18.04
 - 下载ubuntu18.04安装包
