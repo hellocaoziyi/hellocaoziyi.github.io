@@ -13,7 +13,8 @@ categories: WEBee
 - 安装ubuntu18.04
 - 更新源
 
-		推荐使用aliyun(open __software & Updates__, select **Download from**,choose **http://mirrors.aliyun.com/ubuntu**)
+		推荐使用aliyun
+	(open **software & Updates**, select **Download from**, choose **http://mirrors.aliyun.com/ubuntu**)
 
 - 更新库
 
@@ -31,7 +32,9 @@ categories: WEBee
 
 - 重启系统
 
-		**sudo reboot**
+     **一定要重启**
+     
+		sudo reboot
 
 - 准备安装路径
 
