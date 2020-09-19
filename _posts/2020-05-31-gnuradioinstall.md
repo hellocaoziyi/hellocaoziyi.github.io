@@ -244,7 +244,7 @@ categories: WEBee
 
 ## 说明
 
-代码通过gitee转载，可以很快下载源码，UHD使用的版本为3.9，GNU radio使用的版本是3.8
+代码通过gitee转载，可以很快下载源码，UHD使用的版本为3.15.LTS，GNU radio使用的版本是3.8
 
 参考网址：
 
