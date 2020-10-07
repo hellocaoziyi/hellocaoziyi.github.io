@@ -17,7 +17,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
+<html>
+  <head>
+    <meta name="baidu-site-verification" content="code-LMqmySTwiN" />
+    <title>曹梓艺的主页</title>
+  </head>
+</html>
 title: 曹梓艺的主页
 email: hellocaoziyi@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
